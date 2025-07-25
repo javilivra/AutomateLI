@@ -30,3 +30,18 @@ AutomateLI/
 ├── Docs/             # Documentación técnica, flujos y manuales
 ├── scripts_python/   # (en desarrollo) futuras integraciones externas
 └── README.md         # Manual del usuario (versión preliminar)
+
+```
+
+## 🐍 Entorno Python para scripts
+
+Los scripts en `scripts_python/` requieren Python 3 y la biblioteca `ezdxf`.
+Sigue estos pasos para preparar el entorno:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Después puedes ejecutar los scripts desde esa consola activa.

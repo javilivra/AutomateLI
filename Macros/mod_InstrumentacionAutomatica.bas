@@ -46,7 +46,7 @@ Sub ExtraerAtributosBloqueInstrumentos()
 
 Set wb = ActiveWorkbook
 Set hojaLI = wb.Worksheets("LI")
-Set hojaCar = wb.Worksheets("Car�tula")
+Set hojaCar = wb.Worksheets("Carátula")
 Set hojaNotasRef = wb.Worksheets("Notas - Referencias")
 
 rutaDocs = Application.GetOpenFilename("Excel Files (*.xlsx), *.xlsx", , "Selecciona LISTA DE DOCUMENTOS")
@@ -63,7 +63,7 @@ wbDocs.Close SaveChanges:=False
 Set wbDocs = Nothing
 Set hojaDocs = Nothing
 
-MsgBox "Por favor, espera mientras se extraen los datos desde AutoCAD. Este proceso puede tardar varios segundos seg�n la cantidad de bloques."
+MsgBox "Por favor, espera mientras se extraen los datos desde AutoCAD. Este proceso puede tardar varios segundos según la cantidad de bloques."
 
 matchRow = 0
 For iRowDocs = 2 To lastRowDocs
@@ -110,65 +110,65 @@ Dim typeMap As Object
 Set typeMap = CreateObject("Scripting.Dictionary")
 With typeMap
         .Add "AE", "Sonda de analizador":   .Add "AIT", "Analizador Indicador Transmisor"
-        .Add "AI", "Indicaci�n de lectura anal�tica": .Add "AS", "Contacto o se�al discreta"
-        .Add "AX", "Contacto o se�al discreta": .Add "AL", "Contacto o se�al discreta"
-        .Add "FE", "Elemento primario de Caudal": .Add "FG", "Visor en l�nea"
-        .Add "FIT", "Caudal�metro": .Add "FI", "Indicaci�n de Caudal"
-        .Add "FS", "Contacto o se�al discreta": .Add "FX", "Funci�n/C�lculo"
-        .Add "FF", "Relaci�n de caudales": .Add "RO", "Orificio de restricci�n"
+        .Add "AI", "Indicación de lectura analática": .Add "AS", "Contacto o señal discreta"
+        .Add "AX", "Contacto o señal discreta": .Add "AL", "Contacto o señal discreta"
+        .Add "FE", "Elemento primario de Caudal": .Add "FG", "Visor en línea"
+        .Add "FIT", "Caudalímetro": .Add "FI", "Indicación de Caudal"
+        .Add "FS", "Contacto o señal discreta": .Add "FX", "Función/Cálculo"
+        .Add "FF", "Relación de caudales": .Add "RO", "Orificio de restricción"
         .Add "FIC", "Indicador Controlador de Caudal": .Add "LE", "Elemento primario de medida de nivel"
-        .Add "LG", "Nivel visual de vidrio": .Add "LI", "Indicaci�n de Nivel"
-        .Add "LIT", "Transmisor de Nivel": .Add "LS", "Contacto o se�al discreta"
-        .Add "LX", "Funci�n/C�lculo": .Add "LIC", "Indicador Controlador de Nivel"
-        .Add "PI", "Man�metro": .Add "PDI", "Man�metro Diferencial"
-        .Add "PIT", "Transmisor de presi�n": .Add "PDIT", "Transmisor de presi�n Diferencial"
-        .Add "PS", "Switch de Presi�n": .Add "PDS", "Switch de Presi�n Diferencial"
-        .Add "PIC", "Indicador Controlador de Presi�n": .Add "TP", "Prueba de temperatura"
+        .Add "LG", "Nivel visual de vidrio": .Add "LI", "Indicación de Nivel"
+        .Add "LIT", "Transmisor de Nivel": .Add "LS", "Contacto o señal discreta"
+        .Add "LX", "Función/Cálculo": .Add "LIC", "Indicador Controlador de Nivel"
+        .Add "PI", "Manómetro": .Add "PDI", "Manómetro Diferencial"
+        .Add "PIT", "Transmisor de presión": .Add "PDIT", "Transmisor de presión Diferencial"
+        .Add "PS", "Switch de Presión": .Add "PDS", "Switch de Presión Diferencial"
+        .Add "PIC", "Indicador Controlador de Presión": .Add "TP", "Prueba de temperatura"
         .Add "TW", "Termovaina": .Add "TE", "Sensor de temperatura"
-        .Add "TI", "Term�metro": .Add "TDI", "Term�metro diferencial"
-        .Add "TIT", "Transmisor de temperatura": .Add "TS", "Contacto o se�al discreta"
-        .Add "TX", "Contacto o se�al discreta": .Add "TL", "Contacto o se�al discreta"
-        .Add "TIC", "Indicador Controlador de Temperatura": .Add "AV", "V�lvula de control"
-        .Add "FV", "V�lvula de control": .Add "HV", "V�lvula de control"
-        .Add "LV", "V�lvula de control": .Add "PV", "V�lvula de control"
-        .Add "PDV", "V�lvula de control": .Add "TV", "V�lvula de control"
-        .Add "XV", "V�lvula ON-OFF": .Add "SDV", "V�lvula Shutdown"
-        .Add "BDV", "V�lvula Blowdown": .Add "MOV", "V�lvula Motorizada"
-        .Add "LBV", "V�lvula de corte de ductos": .Add "LCV", "V�lvula autorreguladora por nivel"
-        .Add "PCV", "V�lvula autorreguladora por presi�n": .Add "PDCV", "V�lvula autorreguladora por presi�n diferencial"
-        .Add "TCV", "V�lvula autorreguladora por temperatura": .Add "SV", "V�lvula solenoide"
-        .Add "ZS", "Switch de posici�n": .Add "ZT", "Transmisor de posici�n"
-        .Add "ZSO", "Interruptor de posici�n V�lvula abierta": .Add "ZSC", "Interruptor de posici�n V�lvula cerrada"
-        .Add "ZLO", "Indicaci�n en pantalla de v�lvula abierta": .Add "ZLC", "Indicaci�n en pantalla de v�lvula cerrada"
-        .Add "PSE", "Disco de ruptura": .Add "PSV", "V�lvula de seguridad/alivio"
-        .Add "PVSV", "V�lvula de presi�n/vac�o": .Add "HS", "Pulsador"
-        .Add "XL", "L�mpara": .Add "YL", "L�mpara"
+        .Add "TI", "Termómetro": .Add "TDI", "Termómetro diferencial"
+        .Add "TIT", "Transmisor de temperatura": .Add "TS", "Contacto o señal discreta"
+        .Add "TX", "Contacto o señal discreta": .Add "TL", "Contacto o señal discreta"
+        .Add "TIC", "Indicador Controlador de Temperatura": .Add "AV", "Válvula de control"
+        .Add "FV", "Válvula de control": .Add "HV", "Válvula de control"
+        .Add "LV", "Válvula de control": .Add "PV", "Válvula de control"
+        .Add "PDV", "Válvula de control": .Add "TV", "Válvula de control"
+        .Add "XV", "Válvula ON-OFF": .Add "SDV", "Válvula Shutdown"
+        .Add "BDV", "Válvula Blowdown": .Add "MOV", "Válvula Motorizada"
+        .Add "LBV", "Válvula de corte de ductos": .Add "LCV", "Válvula autorreguladora por nivel"
+        .Add "PCV", "Válvula autorreguladora por presión": .Add "PDCV", "Válvula autorreguladora por presión diferencial"
+        .Add "TCV", "Válvula autorreguladora por temperatura": .Add "SV", "Válvula solenoide"
+        .Add "ZS", "Switch de posición": .Add "ZT", "Transmisor de posición"
+        .Add "ZSO", "Interruptor de posición Válvula abierta": .Add "ZSC", "Interruptor de posición Válvula cerrada"
+        .Add "ZLO", "Indicación en pantalla de válvula abierta": .Add "ZLC", "Indicación en pantalla de válvula cerrada"
+        .Add "PSE", "Disco de ruptura": .Add "PSV", "Válvula de seguridad/alivio"
+        .Add "PVSV", "Válvula de presión/vacío": .Add "HS", "Pulsador"
+        .Add "XL", "Lámpara": .Add "YL", "Lámpara"
         .Add "XA", "Alarma": .Add "XSMP", "Orden de marcha/paro"
         .Add "XSM", "Orden de marcha": .Add "XSP", "Orden de paro"
-        .Add "XSE", "Permisivo de arranque": .Add "XSB", "Orden de disparo/se�al de bloqueo"
-        .Add "XSA", "Orden de abrir V�lvula motorizada": .Add "XSC", "Orden de cerrar V�lvula motorizada"
-        .Add "XSD", "Orden de detener V�lvula motorizada": .Add "XY", "-"
-        .Add "YM", "Confirmaci�n de marcha": .Add "YR", "Mando en remoto"
-        .Add "YD", "Confirmaci�n de equipo disponible": .Add "YS", "-"
+        .Add "XSE", "Permisivo de arranque": .Add "XSB", "Orden de disparo/señal de bloqueo"
+        .Add "XSA", "Orden de abrir Válvula motorizada": .Add "XSC", "Orden de cerrar Válvula motorizada"
+        .Add "XSD", "Orden de detener Válvula motorizada": .Add "XY", "-"
+        .Add "YM", "Confirmación de marcha": .Add "YR", "Mando en remoto"
+        .Add "YD", "Confirmación de equipo disponible": .Add "YS", "-"
         .Add "YA", "Estado de Falla": .Add "XST", "Consigna velocidad o frecuencia"
-        .Add "XZT", "Consigna de posici�n": .Add "XET", "Consigna de tensi�n"
+        .Add "XZT", "Consigna de posición": .Add "XET", "Consigna de tensión"
         .Add "XIT", "Consigna de intensidad": .Add "XJT", "Consigna de potencia"
         .Add "XGT", "Consigna de cos": .Add "XYT", "Otra variable a especificar"
-        .Add "ST", "Velocidad o frecuencia": .Add "ET", "Tensi�n"
+        .Add "ST", "Velocidad o frecuencia": .Add "ET", "Tensión"
         .Add "IT", "Intensidad": .Add "JT", "Potencia"
         .Add "GT", "Cos": .Add "YT", "Otra variable a especificar"
         .Add "BE", "Detector de llama": .Add "BT", "Detector de llama"
-        .Add "BI", "Indicaci�n de llama": .Add "BS", "Contacto o se�al discreta"
+        .Add "BI", "Indicación de llama": .Add "BS", "Contacto o señal discreta"
         .Add "BL", "Estado detector": .Add "SE", "Sonda de medida de velocidad"
-        .Add "SS", "Contacto o se�al discreta": .Add "VE", "Sonda de vibraci�n"
-        .Add "VT", "Transmisor (proximitor)": .Add "VS", "Switch de vibraci�n"
-        .Add "ZE", "Sonda de posici�n": .Add "AY", "Convertidor IP"
+        .Add "SS", "Contacto o señal discreta": .Add "VE", "Sonda de vibración"
+        .Add "VT", "Transmisor (proximitor)": .Add "VS", "Switch de vibración"
+        .Add "ZE", "Sonda de posición": .Add "AY", "Convertidor IP"
         .Add "FY", "Convertidor IP": .Add "LY", "Convertidor IP"
         .Add "PY", "Convertidor IP": .Add "TY", "Convertidor IP"
-        .Add "WE", "Celda de pesaje": .Add "WT", "Transmisor/Se�al Continua de peso"
-        .Add "WI", "B�scula": .Add "CC", "Cup�n de corrosi�n"
+        .Add "WE", "Celda de pesaje": .Add "WT", "Transmisor/Señal Continua de peso"
+        .Add "WI", "Báscula": .Add "CC", "Cupón de corrosión"
         .Add "TMg", "Toma muestra": .Add "TML", "Toma muestra"
-        .Add "XI", "Detector de paso Scrapper": .Add "IQ", "Inyecci�n de qu�mico"
+        .Add "XI", "Detector de paso Scrapper": .Add "IQ", "Inyección de químico"
 End With
 
 Dim dictDataSheets As Object
@@ -195,24 +195,24 @@ Set acadApp = GetObject(, "AutoCAD.Application")
 On Error GoTo 0
 
 If acadApp Is Nothing Then
-    MsgBox "No se detect� AutoCAD abierto. Por favor, abre AutoCAD y carga el archivo del cual se deben extraer los bloques.", vbCritical, "Error de conexi�n con AutoCAD"
+    MsgBox "No se detectó AutoCAD abierto. Por favor, abre AutoCAD y carga el archivo del cual se deben extraer los bloques.", vbCritical, "Error de conexión con AutoCAD"
     Exit Sub
 End If
 
 If acadApp.Documents.Count = 0 Then
-    MsgBox "AutoCAD est� abierto pero no hay ning�n dibujo cargado. Abr� el plano antes de ejecutar la macro.", vbCritical, "Archivo no encontrado"
+    MsgBox "AutoCAD está abierto pero no hay ningún dibujo cargado. Abrí el plano antes de ejecutar la macro.", vbCritical, "Archivo no encontrado"
     Exit Sub
 End If
 
 Set acadDoc = acadApp.ActiveDocument
 If acadDoc Is Nothing Then
-    MsgBox "No se pudo acceder al documento activo de AutoCAD. Verific� que el dibujo est� correctamente cargado.", vbCritical, "Error con AutoCAD"
+    MsgBox "No se pudo acceder al documento activo de AutoCAD. Verificá que el dibujo esté correctamente cargado.", vbCritical, "Error con AutoCAD"
     Exit Sub
 End If
 
 Set modelSpace = acadDoc.modelSpace
 If modelSpace Is Nothing Then
-    MsgBox "No se pudo acceder al ModelSpace del archivo de AutoCAD. Puede que el archivo no sea v�lido o est� da�ado.", vbCritical, "Error con ModelSpace"
+    MsgBox "No se pudo acceder al ModelSpace del archivo de AutoCAD. Puede que el archivo no sea válido o esté dañado.", vbCritical, "Error con ModelSpace"
     Exit Sub
 End If
 
@@ -315,11 +315,11 @@ Dim totalExportados As Long
 totalExportados = filaExcel - 7
 
 If cantidadDuplicados > 0 Then
-    MsgBox "Extracci�n completa: " & totalExportados & " instrumentos exportados." & vbCrLf & vbCrLf & _
+    MsgBox "Extracción completa: " & totalExportados & " instrumentos exportados." & vbCrLf & vbCrLf & _
            "Se detectaron " & cantidadDuplicados & " TAGs duplicados." & vbCrLf & _
-           "Ver filas resaltadas en color rojo para m�s detalle.", vbExclamation, "Extracci�n finalizada con advertencias"
+           "Ver filas resaltadas en color rojo para más detalle.", vbExclamation, "Extracción finalizada con advertencias"
 Else
-    MsgBox "Extracci�n completa: " & totalExportados & " instrumentos exportados.", vbInformation, "Extracci�n finalizada"
+    MsgBox "Extracción completa: " & totalExportados & " instrumentos exportados.", vbInformation, "Extracción finalizada"
 End If
 
 Call CompletarSenalesYUnidades
@@ -340,7 +340,7 @@ Sub CompletarSenalesYUnidades()
     Set dictSeniales = CreateObject("Scripting.Dictionary")
     Set dictUnidades = CreateObject("Scripting.Dictionary")
 
-    ' ============ TIPO DE SE�AL (columna K) ============
+    ' ============ TIPO DE SEÑAL (columna K) ============
     dictSeniales.Add "PIT", Array("4-20mA", "4-20mA + HART")
     dictSeniales.Add "PDIT", Array("4-20mA", "4-20mA + HART")
     dictSeniales.Add "AIT", Array("4-20mA", "0-20mA", "1-5V")
@@ -399,7 +399,7 @@ Sub CompletarSenalesYUnidades()
 
     ' ============ UNIDADES (columna U) ============
     dictUnidades.Add "PIT", Array("kg/cm2", "bar", "psi")
-    dictUnidades.Add "TIT", Array("�C", "�F")
+    dictUnidades.Add "TIT", Array("°C", "°F")
     dictUnidades.Add "LIT", Array("%", "m", "cm")
     dictUnidades.Add "FIT", Array("m3/h", "L/min", "gpm")
     dictUnidades.Add "WT", Array("kg", "ton")
@@ -466,5 +466,6 @@ Sub CompletarSenalesYUnidades()
 Siguiente:
     Next fila
 
-    MsgBox "Rutina de exportaci�n finalizada. Completar Servicio, Ubicaci�n e informaci�n de Alarmas, verificar y emitir", vbInformation
+    MsgBox "Rutina finalizada. Completar Servicio, ubicación e información de Alarmas. Verificar y emitir", vbInformation
 End Sub
+
